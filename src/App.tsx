@@ -11,6 +11,8 @@ import { Products } from "./pages/products/Products";
 import { NavBar } from "./components/navBar/NavBar";
 import { Menu } from "./components/menu/Menu";
 import { Footer } from "./components/footer/Footer";
+import { Login } from "./pages/login/Login";
+import "./styles/global.scss";
 
 function App() {
   const Layout = () => {
@@ -47,6 +49,10 @@ function App() {
           element: <Products />,
         },
       ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
   ]);
 
