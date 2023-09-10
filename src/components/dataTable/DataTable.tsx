@@ -1,4 +1,4 @@
-import "./dataType.scss";
+import "./dataTable.scss";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 
@@ -47,7 +47,7 @@ const rows = [
 ];
 function DataTable() {
   return (
-    <div className="dataType">
+    <div className="dataTable">
       <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={rows}
