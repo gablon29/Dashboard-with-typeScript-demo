@@ -1,6 +1,10 @@
 import "./dataTable.scss";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import { Box } from "@mui/material";
+import {
+  DataGrid,
+  GridColDef,
+  GridToolbar,
+  GridValueGetterParams,
+} from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -48,23 +52,31 @@ const rows = [
 function DataTable() {
   return (
     <div className="dataTable">
-      <Box sx={{ height: 400, width: "100%" }}>
-        <DataGrid
-          className="dataGrid"
-          rows={rows}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 5,
-              },
+      <DataGrid
+        className="dataGrid"
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 5,
             },
-          }}
-          pageSizeOptions={[5]}
-          checkboxSelection
-          disableRowSelectionOnClick
-        />
-      </Box>
+          },
+        }}
+        slots={{ toolbar: GridToolbar }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 500 },
+          },
+        }}
+        pageSizeOptions={[5]}
+        checkboxSelection
+        disableRowSelectionOnClick
+        disableColumnFilter
+        disableDensitySelector
+        disableColumnSelector
+      />
     </div>
   );
 }
