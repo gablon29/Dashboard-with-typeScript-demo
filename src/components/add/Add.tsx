@@ -8,6 +8,11 @@ type Props = {
 };
 
 const Add = (props: Props) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // add new product or users
+  };
+
   return (
     <div className="add">
       <div className="modal">
@@ -15,7 +20,7 @@ const Add = (props: Props) => {
           X
         </span>
         <h1>Add New {props.slug}</h1>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           {props.columns
             .filter((item) => item.field !== "id" && item.field !== "avatar")
             .map((column) => (
@@ -24,6 +29,7 @@ const Add = (props: Props) => {
                 <input type={column.type} placeholder={column.field} />
               </div>
             ))}
+          <button>Send</button>
         </form>
       </div>
     </div>

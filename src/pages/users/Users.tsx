@@ -2,7 +2,7 @@ import { useState } from "react";
 import DataTable from "../../components/dataTable/DataTable";
 import { userRows } from "../../data";
 import "./users.scss";
-import { GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { GridColDef } from "@mui/x-data-grid";
 import Add from "../../components/add/Add";
 
 const columns: GridColDef[] = [
@@ -42,6 +42,12 @@ const columns: GridColDef[] = [
     headerName: "Phone",
     width: 200,
     editable: true,
+  },
+  {
+    field: "createdAt",
+    headerName: "Create At",
+    width: 200,
+    type: "string",
   },
   {
     field: "status",
