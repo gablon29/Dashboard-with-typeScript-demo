@@ -32,6 +32,16 @@
         }
       }
     }
+    hr {
+      width: 90%;
+      height: 0;
+      border: 1px solid gray;
+    }
+    .chart {
+      margin-top: 50px;
+      width: 80%;
+      height: 400px;
+    }
   }
   .activities {
     flex: 1;
