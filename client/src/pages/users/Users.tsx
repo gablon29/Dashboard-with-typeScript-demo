@@ -63,7 +63,7 @@ function Users() {
   const { isLoading, data } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
-      fetch("https://localhost:8800/api/users").then((res) => res.json()),
+      fetch("http://localhost:8800/api/users").then((res) => res.json()),
   });
 
   return (
