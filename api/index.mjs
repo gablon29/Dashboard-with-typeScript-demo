@@ -1,5 +1,5 @@
-import express from "express";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
@@ -253,7 +253,55 @@ let products = [
 ];
 
 //GET USERS
+app.get("/api/users", (req, res) => {
+  res.json(users);
+});
+
+//GET USERS
 app.get("/api/users/:id", (res, req) => {
   const user = users.find((user) => user.id === parseInt(req.params.id));
   res.json(user);
+});
+
+//ADD USERS
+app.post("/api/users", (req, res) => {
+  users.unshift(req.body);
+  res.json(users);
+});
+
+//DELETE USER
+app.delete("/api/users/:id", (req, res) => {
+  users = users.filter((user) => user.id !== parseInt(req.params.id));
+  res.json("User deleted!");
+});
+
+//GET PRODUCT
+app.get("/api/products", (req, res) => {
+  res.json(products);
+});
+
+//GET PRODUCT BY ID
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find(
+    (product) => product.id === parseInt(req.params.id)
+  );
+  res.json(product);
+});
+
+//ADD PRODUCT
+app.post("/api/products", (req, res) => {
+  products.unshift(req.body);
+  res.json(products);
+});
+
+//DELETE PRODUCT
+app.delete("/api/products/:id", (req, res) => {
+  products = products.filter(
+    (product) => product.id !== parseInt(req.params.id)
+  );
+  res.json("Product delete!");
+});
+
+app.listen(8800, () => {
+  console.log("Connected to backend");
 });
